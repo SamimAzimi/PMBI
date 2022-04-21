@@ -1,0 +1,22 @@
+@model learning.Models.UserModel
+@{
+
+
+  ViewData["Title"] = "Login Page";
+}
+
+<form method="post" class="container w-50">
+  <div class="input-group input-group-lg">
+    <label class="input-group-text bg-primary text-white fa-solid fa-user" id="inputGroup-sizing-lg"></label>
+    <input type="text" class="form-control" placeholder="Enter Your User Name " aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-lg" />
+  </div>
+  <div class="input-group input-group-lg">
+    <label class="input-group-text fa-solid fa-key bg-primary text-white" id="inputGroup-sizing-lg"></label>
+    <input type="text" class="form-control" placeholder="Enter Your Password" aria-label="Password"
+      aria-describedby="inputGroup-sizing-lg" />
+  </div>
+
+  <button class="btn btn-primary" type="submit" asp-controller="admin" asp-action="Dashboard">Login</button>
+  <button class="btn btn-secondary" type="cancle">Cancle</button>
+</form>

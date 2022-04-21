@@ -1,0 +1,24 @@
+.sidebarAdmin {
+    border:2px solid white;
+    width: 60px;
+    overflow: hidden;
+    
+}
+
+.sidebarAdmin:hover {
+    width: 200px;
+}
+
+.sidebarMenu {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    gap:12px;
+    align-items: center;
+    overflow: hidden;
+    height: 90vh;
+}
+
+.sidebarMenu > a {
+    text-decoration: none;
+    color:white;
+}
