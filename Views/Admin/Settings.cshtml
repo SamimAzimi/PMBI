@@ -1,6 +1,32 @@
+@model IEnumerable<UserModel>
 @{
     ViewData["Title"] = "Dashboard";
     Layout = "~/views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Admin Settings</h1>
+<h1>Users</h1>
+<table class="table text-white table-sm table-striped table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">User Name</th>
+            <th scope="col">Password</th>
+            <th scope="col">Roles</th>
+            <th scope="col">Rights</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr class="text-white">
+                <td scope="row">@obj.Name</td>
+                <td>@obj.Password</td>
+                <td>@obj.Role</td>
+                <td>@obj.Right</td>
+                <td>Delete</td>
+                <td>Edit</td>
+                <td>Cancel</td>
+            </tr>
+        }
+    </tbody>
+</table>

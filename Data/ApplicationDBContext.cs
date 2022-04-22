@@ -11,4 +11,5 @@ public class ApplicationDBContext : DbContext
     }
 
     public DbSet<UserModel> users { get; set; }
+    public DbSet<MessageModel> messages { get; set; }
 }

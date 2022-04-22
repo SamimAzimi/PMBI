@@ -1,53 +1,61 @@
+@model MessageModel
 @{
     ViewData["Title"] = "Contact US";
 }
 
-
+<partial name="_notification" />
 <aside class="pt-5">
     <div class="row">
-        <form class="container col-md-6 w-50  text-white">
+        <form method="post" class="container col-md-6 w-50  text-white">
             <div class="input-group  input-group-sm mb-3 bg-primary">
                 <div class="input-group-prepend">
-                    <label htmlFor="username" class="input-group-text  bg-primary text-white fa-solid fa-user "
-                        id="basic-addon1">
+                    <label for="validationCustom01" class="input-group-text  bg-primary text-white fa-solid fa-user">
 
                     </label>
                 </div>
-                <input type="text" name="username" class="form-control text-white  bg-dark" placeholder="Username"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" name="CustomerName" asp-for="CustomerName" class="form-control text-white  bg-dark"
+                    placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+
             </div>
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text fa-solid fa-phone bg-primary text-white" id="basic-addon1"></label>
                 </div>
                 <input type="text" class="form-control text-white bg-dark" placeholder="Phone Number"
-                    aria-label="phonenumber" aria-describedby="basic-addon2">
+                    aria-label="phonenumber" asp-for="Phone" aria-describedby="basic-addon2">
             </div>
+            <span asp-validation-for="Phone" class="text-danger"></span>
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text  bg-primary text-white fa-solid fa-at " id="basic-addon1"></label>
                 </div>
-                <input type="text" class="form-control text-white bg-dark" placeholder="Email" aria-label="email"
-                    aria-describedby="basic-addon1">
+                <input type="text" asp-for="Email" class="form-control text-white bg-dark" placeholder="Email"
+                    aria-label="email" aria-describedby="basic-addon1">
+
             </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text  bg-primary text-white fa-solid fa-envelope-open "
                         id="basic-addon1"></label>
                 </div>
-                <input type="text" class="form-control bg-dark text-white" placeholder="Subject" aria-label="subject"
-                    aria-describedby="basic-addon1">
+                <input type="text" asp-for="Subject" class="form-control bg-dark text-white" placeholder="Subject"
+                    aria-label="subject" aria-describedby="basic-addon1">
             </div>
+            <span asp-validation-for="Subject" class="text-danger"></span>
 
             <div class="input-group">
                 <div class="input-group-prepend">
                     <label class="input-group-text  bg-primary text-white fa-solid fa-inbox"></label>
                 </div>
                 <textarea placeholder="Your Valuable Message Here" class="form-control text-white bg-dark"
-                    aria-label="With textarea"></textarea>
+                    asp-for="Message" aria-label="With textarea"></textarea>
+
             </div>
+            <span asp-validation-for="Message" class="text-danger"></span>
             <div class="input input-group-sm container btn-group pt-2">
-                <button type="button"
+                <button type="submit"
                     class="btn btn-success text-white btn-outline-success fa-solid fa-paper-plane">Submit</button>
                 <button type="button" class="btn btn-danger text-white btn-outline-danger">Cancel</button>
             </div>

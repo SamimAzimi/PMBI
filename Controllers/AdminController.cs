@@ -1,16 +1,16 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using learning.Models;
-
+using learning.Data;
 namespace learning.Controllers;
 
 public class AdminController : Controller
 {
-    private readonly ILogger<AdminController> _logger;
+    private readonly ApplicationDBContext _db;
 
-    public AdminController(ILogger<AdminController> logger)
+    public AdminController(ApplicationDBContext db)
     {
-        _logger = logger;
+        _db = db;
     }
 
     public IActionResult Index()
@@ -45,16 +45,20 @@ public class AdminController : Controller
     }
     public IActionResult Settings()
     {
-        return View();
+        IEnumerable<UserModel> objUser = _db.users.ToList();
+        return View(objUser);
     }
     public IActionResult SalesAnalyis()
     {
         return View();
     }
 
-    public IActionResult Notification()
+    public IActionResult Notification(MessageModel obj)
     {
-        return View();
+
+        IEnumerable<MessageModel> objmessage = _db.messages.ToList();
+        return View(objmessage);
+
     }
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
