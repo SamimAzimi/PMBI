@@ -1,0 +1,17 @@
+<header id="header" class=" d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center">
+        <i class="fa-solid fa-bars fa-2x" id="menu-toggle"></i>
+        <h1 class="logo me-auto">
+            <a asp-controller="Home" asp-action="Index" asp-fragment="hero">PMBI</a>
+        </h1>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a class="nav-link scrollto" asp-controller="Home" asp-action="Index"
+                        asp-fragment="footer">Notifications</a></li>
+                <li><a class="nav-link scrollto" asp-controller="Home" asp-action="Login">Settings</a>
+                </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header>

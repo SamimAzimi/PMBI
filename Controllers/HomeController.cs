@@ -44,7 +44,6 @@ public class HomeController : Controller
             TempData["success"] = "your Message Has Been Sent Successfully";
             return RedirectToAction("Index");
         }
-
         return View(obj);
     }
     public IActionResult Service()
@@ -53,17 +52,16 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public ActionResult Login(UserModel user)
+    public ActionResult Login(UserModel usr)
     {
-        var username = _db.users.SingleOrDefault(u => u.Name == user.Name);
-        var pass = _db.users.SingleOrDefault(u => u.Password == user.Password);
-
-        if (user != null & pass != null)
+        var username = _db.users.SingleOrDefault(u => u.Name == usr.Name);
+        var pass = _db.users.SingleOrDefault(u => u.Password == usr.Password);
+        if (username != null & pass != null)
         {
             return RedirectToAction("Index", "Admin");
         }
         TempData["error"] = "Invalid User Name";
-        return View(user);
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
