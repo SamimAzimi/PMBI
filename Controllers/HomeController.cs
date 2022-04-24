@@ -19,14 +19,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Login()
-    {
-        return View();
-    }
-    public IActionResult Portflio()
-    {
-        return View();
-    }
+
 
     public IActionResult Contact()
     {
@@ -46,24 +39,7 @@ public class HomeController : Controller
         }
         return View(obj);
     }
-    public IActionResult Service()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public ActionResult Login(UserModel usr)
-    {
-        var username = _db.users.SingleOrDefault(u => u.Name == usr.Name);
-        var pass = _db.users.SingleOrDefault(u => u.Password == usr.Password);
-        if (username != null & pass != null)
-        {
-            return RedirectToAction("Index", "Admin");
-        }
-        TempData["error"] = "Invalid User Name";
-        return View();
-    }
-
+   
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
